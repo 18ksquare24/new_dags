@@ -49,7 +49,7 @@ task1 = BashOperator(
 task1.set_downstream(run_this_last)
 
 task2 = BashOperator(
-    task_id='Testing Kubernetes pod', bash_command='echo "run_id={{ run_id }} | dag_run={{ dag_run }}" && sleep 200', queue='kubernetes', dag=dag
+    task_id='testing_kubernetes_pod', bash_command='echo "run_id={{ run_id }} | dag_run={{ dag_run }}" && sleep 200', queue='kubernetes', dag=dag
 )
 run_this_last.set_downstream(task2)
 if __name__ == "__main__":
